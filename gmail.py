@@ -63,7 +63,10 @@ if __name__ == "__main__":
     #this is a testing code which will check for email every 5 minutes and nofity you if there is a new email
     count = 0
     while(True):
-        check_email()#right now send_sms() is called from check_email(), has to move it outside for modularity
+        try:
+            check_email()#right now send_sms() is called from check_email(), need to move it outside for modularity
+        except:
+            print "Network error"
         count = count + 1
         print "Check",count
         time.sleep(300)
